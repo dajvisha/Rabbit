@@ -1,25 +1,37 @@
 import React, { Component } from 'react';
-import productAqua from './../images/products/image-aqua.png';
-import avatarDaniel from './../images/avatars/daniel.jpg';
+import './../styles/product.css';
 
 class Product extends Component {
     render() {
-        return(
-            <div className='item'>
-                <div className='image'>
-                    <img src={productAqua} />
+        return (
+            <div className='product-card'>
+                <div className='product-card-image'>
+                    <img
+                        className='product-image'
+                        alt='Product'
+                        src={this.props.productImageUrl}
+                    />
                 </div>
-                <div className='middle aligned content'>
-                    <div className='description'>
-                        <a>Fort Knight</a>
-                        <p>Authentic renaissance actors, delivered in just two weeks.</p>
+                <div className='product-card-description'>
+                    <div className='product-name'>
+                        <a href={this.props.url}>
+                            {this.props.title}
+                        </a>
                     </div>
-                    <div className='extra'>
-                        <span>Submitted by: </span>
-                        <img
-                            className='ui avatar image'
-                            src={avatarDaniel}
-                        />
+                    <div className='product-description'>
+                        <p>
+                            {this.props.description}
+                        </p>
+                    </div>
+                </div>
+                <div className='product-card-votes'>
+                    <div>
+                        <a>
+                            <i className="fas fa-carrot vote-icon"></i>
+                        </a>
+                    </div>
+                    <div>
+                        {this.props.votes}
                     </div>
                 </div>
             </div>

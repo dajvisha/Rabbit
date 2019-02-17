@@ -1,12 +1,17 @@
-/* Styles go here */
+body {
+  background-color: #E1E5E7;
+}
 
 #root {
   margin-bottom: 4em;
 }
 
 .ui.dividing.header {
-  margin-top: 1em;
-  margin-bottom: 2em;
+  font-family: 'Pacifico', cursive;
+  color: #FF8A0B;
+  font-size: 50px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 i.icon {

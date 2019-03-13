@@ -3,7 +3,9 @@ import Product from './Product';
 
 class ProductList extends Component {
     render() {
-        const products = this.props.products.map((product) => (
+        const products = this.props.products.sort((a, b) => (b.votes - a.votes));
+
+        const productComponents = products.map((product) => (
             <Product
                 key={'product-' + product.id}
                 id={product.id}
@@ -18,7 +20,7 @@ class ProductList extends Component {
 
         return (
             <div className='ui unstackable items'>
-                {products}
+                {productComponents}
             </div>
         )
     }

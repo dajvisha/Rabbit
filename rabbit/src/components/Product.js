@@ -2,6 +2,16 @@ import React, { Component } from 'react';
 import './../styles/product.css';
 
 class Product extends Component {
+    constructor(props) {
+        super(props);
+
+        this.handleUpVote = this.handleUpVote.bind(this);
+    }
+
+    handleUpVote() {
+        this.props.onVote(this.props.id);
+    }
+
     render() {
         return (
             <div className='product-card'>
@@ -26,7 +36,7 @@ class Product extends Component {
                 </div>
                 <div className='product-card-votes'>
                     <div>
-                        <a>
+                        <a onClick={this.handleUpVote}>
                             <i className="fas fa-carrot vote-icon"></i>
                         </a>
                     </div>

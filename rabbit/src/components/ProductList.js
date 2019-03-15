@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import Product from './Product';
 
 class ProductList extends Component {
+    handleProductUpVote(productId) {
+        console.log(productId + ' was upvoted');
+    }
+
     render() {
         const products = this.props.products.sort((a, b) => (b.votes - a.votes));
 
@@ -15,6 +19,7 @@ class ProductList extends Component {
                 votes={product.votes}
                 submitterAvatarUrl={product.submitterAvatarUrl}
                 productImageUrl={product.productImageUrl}
+                onVote={this.handleProductUpVote}
             />
         ));
 

@@ -8,6 +8,8 @@ class ProductList extends Component {
         this.state = {
             products: []
         };
+
+        this.handleProductUpVote = this.handleProductUpVote.bind(this);
     }
 
     componentDidMount() {
@@ -15,7 +17,17 @@ class ProductList extends Component {
     }
 
     handleProductUpVote(productId) {
-        console.log(productId + ' was upvoted');
+        const products = this.state.products.map((product) => {
+            if (product.id === productId) {
+                return Object.assign({}, product, {
+                    votes: product.votes + 1 
+                });
+            } else {
+                return product;
+            }
+        });
+
+        this.setState({products: products});
     }
 
     render() {

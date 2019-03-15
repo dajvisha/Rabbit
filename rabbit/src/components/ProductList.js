@@ -2,12 +2,24 @@ import React, { Component } from 'react';
 import Product from './Product';
 
 class ProductList extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            products: []
+        };
+    }
+
+    componentDidMount() {
+        this.setState({products: this.props.products});
+    }
+
     handleProductUpVote(productId) {
         console.log(productId + ' was upvoted');
     }
 
     render() {
-        const products = this.props.products.sort((a, b) => (b.votes - a.votes));
+        const products = this.state.products.sort((a, b) => (b.votes - a.votes));
 
         const productComponents = products.map((product) => (
             <Product
